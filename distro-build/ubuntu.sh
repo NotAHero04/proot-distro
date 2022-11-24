@@ -1,5 +1,5 @@
 dist_name="Ubuntu"
-dist_version="jammy"
+dist_version="kinetic"
 
 bootstrap_distribution() {
 	for arch in arm64 armhf amd64; do
@@ -7,7 +7,7 @@ bootstrap_distribution() {
 			--architectures=${arch} \
 			--variant=apt \
 			--components="main,universe,multiverse" \
-			--include="dbus-user-session,systemd,gvfs-daemons,libsystemd0,systemd-sysv,udisks2" \
+			--include="libfakechroot,dbus-user-session,systemd,gvfs-daemons,libsystemd0,systemd-sysv,udisks2" \
 			--format=tar \
 			"${dist_version}" \
 			"${ROOTFS_DIR}/ubuntu-$(translate_arch "$arch")-pd-${CURRENT_VERSION}.tar"
